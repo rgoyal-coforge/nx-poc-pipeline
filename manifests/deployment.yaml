@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
       - name: nexusapp-ecr
-        image: 442426854264.dkr.ecr.eu-west-1.amazonaws.com/nx-poc-pipeline:1.0
+        image: DOCKER_IMAGE
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1      
